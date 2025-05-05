@@ -1,7 +1,7 @@
 # video-management-app
 A personal full-stack project to organize and manage music videos, built with Node.js, Express, and EJS. Designed for local use with playlist creation, smart filtering, and data visualization features.
 
-#Key Features
+# Key Features
 
 - Full CRUD system with Admin panel
 - Filter videos by score, tags, artist, features or custom keywords
@@ -10,7 +10,6 @@ A personal full-stack project to organize and manage music videos, built with No
 - Portable setup (JSON-based, no database required)
 
 #  Screenshots
-
 
 # Tech Stack
 
