@@ -10,7 +10,17 @@ A personal full-stack project to organize and manage music videos, built with No
 - Portable setup (JSON-based, no database required)
 
 #  Screenshots
+**Main Page**
+![Main Page](./01.png)
 
+**Filter Page**
+![Filter Page](./02.png)
+
+**Playlist Page**
+![Playlist Page](./03.png)
+
+**Data Visualization**
+![Data Page](./06.png)
 # Tech Stack
 
 - **Frontend:** EJS Templates
