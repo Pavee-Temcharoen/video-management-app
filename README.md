@@ -25,4 +25,4 @@ A personal full-stack project to organize and manage music videos, built with No
 npm install
 node app.js
 # Then go to http://localhost:3000/main
-or just run batch file Run App.bat
+# just run batch file Run App.bat
