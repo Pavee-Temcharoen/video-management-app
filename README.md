@@ -1,44 +1,46 @@
-# video-management-app
-A personal full-stack project to organize and manage music videos, built with Node.js, Express, and EJS. Designed for local use with playlist creation, smart filtering, and data visualization features.
+# Video Management App
 
-# Key Features
+A full-stack local web app to organize and manage music videos. Built with Node.js, Express, and EJS, this project supports playlist creation, video filtering, smart playback, and data visualization—designed for personal use and as a learning project to apply full-stack skills.
 
-- Full CRUD system with Admin panel
-- Filter videos by score, tags, artist, features or custom keywords
-- Custom playlist creation and editing (drag-and-drop)
-- Data visualization with Chart.js
-- Portable setup (JSON-based, no database required)
+## Key Features
 
-#  Screenshots
-**Main Page**
+- Full CRUD (Create, Read, Update, Delete) for video entries
+- Custom playlist creation with drag-and-drop and reordering
+- Advanced filtering: by score, tags, artist, feature, keywords
+- Playlist playback with options: shuffle, score-order, reverse
+- Edit metadata for any video
+- Data visualization using Chart.js
+- JSON-based data storage (no database needed)
+
+---
+
+## Screenshots
+
+**Main Page**  
 ![Main Page](./01.png)
 
-**Data Visualize**
-![Data Visualize](./02.png)
+**Filter Page**  
+![Filter Page](./02.png)
 
-**Admin Page**
-![Admin Page](./03.png)
+**Playlist Overview**  
+![Playlist Page](./03.png)
 
-**Filter Page**
-![Filter Page](./06.png)
+**Data Visualization**  
+![Data Page](./06.png)
 
-**Filter Page**
-![Show Page](./07.png)
+**Add/Edit Video Form**  
+![Add Video](./07.png)
 
-**Playlist Page**
-![Playlist Page](./09.png)
+**Drag-and-Drop Playlist Editor**  
+![Edit Playlist](./09.png)
 
-# Tech Stack
+**Smart Playback UI**  
+![Playback](./10.png)
 
-- **Frontend:** EJS Templates
-- **Backend:** Node.js, Express
-- **Data:** JSON files (planned upgrade to SQLite)
-- **Other Tools:** Multer, Method-Override, Chart.js
+---
 
-# Setup Instructions
+## 🚀 Setup Instructions
 
 ```bash
 npm install
 node app.js
-# Then go to http://localhost:3000/main
-# just run batch file Run App.bat
