@@ -13,14 +13,21 @@ A personal full-stack project to organize and manage music videos, built with No
 **Main Page**
 ![Main Page](./01.png)
 
+**Data Visualize**
+![Data Visualize](./02.png)
+
+**Admin Page**
+![Admin Page](./03.png)
+
 **Filter Page**
-![Filter Page](./02.png)
+![Filter Page](./06.png)
+
+**Filter Page**
+![Show Page](./07.png)
 
 **Playlist Page**
-![Playlist Page](./03.png)
+![Playlist Page](./09.png)
 
-**Data Visualization**
-![Data Page](./06.png)
 # Tech Stack
 
 - **Frontend:** EJS Templates
