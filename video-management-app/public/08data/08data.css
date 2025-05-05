@@ -1,0 +1,135 @@
+/* Starter */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.hide {display: none !important;}
+
+canvas { display: block;}
+
+body {
+    background-color: rgb(30, 30, 30); color: antiquewhite;
+    position: relative;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    border: 1px antiquewhite solid;
+    border-radius: 1rem;
+    background-color: black;
+    color: antiquewhite;
+    padding: 0.2rem 1rem;
+}
+
+button:hover {
+    background-color: antiquewhite;
+    border: 1px antiquewhite solid;
+    color: black;
+    transition: 0.2s ease;
+}
+
+.bg {
+    background-color: rgb(40,40,40);
+    width: 100 vw; height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-sect {
+    width: 90%; height: 90%;
+    background-color: rgb(15,15,15);
+    padding: 1rem;
+}
+
+.chart-header {
+    width: 100%; height: 2rem;
+    background-color: black;
+    border: 1px solid antiquewhite;
+}
+
+.bar-scroll {
+    width: 100%;
+    height: calc(100% - 2rem);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#bar-chart-feat-canvas {
+    display: block;
+}
+
+/* LEFT ******************************** */
+.left {
+    width: 30%; height: 100%;
+    background-color: rgb(10,10,10);
+}
+
+/* MID-LEFT ******************************** */
+.mid-left {
+    width: 30%; height: 100%;
+    background-color: rgb(10,10,10);
+}
+
+/* MID-RIGHT ******************************** */
+.mid-right {
+    width: 27%; height: 100%;
+    background-color: blue;
+}
+
+.mid-child {
+    width: 100%; height: calc(100%/2);
+    background-color: rgb(10,10,10);
+}
+
+.pie-sect {
+    width: 100%; height: calc(100% - 2rem);
+    padding: 2rem;
+}
+
+.his-sect {
+    width: 100%; height: calc(100% - 2rem);
+    padding: 1rem;
+}
+
+.list-sect {
+    background-color: rgb(0, 0, 180);
+}
+
+/* RIGHT ******************************** */
+.right {
+    width: 13%; height: 100%;
+    background-color: rgb(93, 93, 93);
+}
+
+.filter-header {
+    width: 100%; height: 2rem;
+    background-color: rgb(29, 76, 76);
+}
+
+.filter-container {
+    font-size: 0.8rem;
+    background-color: rgb(92, 92, 92);
+    width: 100%; height: calc(100% - 2rem);
+    overflow-y: scroll;
+}
+
+.filter-each {
+    background-color: rgb(14, 111, 135);
+    margin-top: 0.25rem;
+}
+
+.tag-cat {
+    background-color: darkslategray;
+    padding: 0.1rem 0.25rem;
+}
+
+.tag-choice {
+    padding: 0.25rem 0.25rem;
+}
+
+
+

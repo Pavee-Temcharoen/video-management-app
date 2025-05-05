@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visual</title>
+    <link rel="stylesheet" href="/public/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/public/scrollbar/scrollbar.css">
+    <link rel="stylesheet" href="/public/08data/08data.css">
+    <!-- Script -->
+
+</head>
+<body>
+<!-- * UPPER ************************************** -->
+    <div class="bg">
+
+        <section class="center-sect flex">
+            <!-- * LEFT ************************************** -->
+            <section class="left">
+
+                <div class="chart-header flex">
+                    <span>Vocalist Feature Ranking</span>
+                </div>
+
+                <div class="bar-scroll">
+                    <canvas id="bar-chart-feat-canvas"></canvas>
+                </div>
+
+            </section>
+            <!-- * MID-LEFT ************************************** -->
+            <section class="mid-left">
+
+                <div class="chart-header flex">
+                    <span>Original Artist Ranking</span>
+                </div>
+
+                <div class="bar-scroll">
+                    <canvas id="bar-chart-artist-canvas"></canvas>
+                </div>
+
+            </section>
+            <!-- * MID-RIGHT ************************************** -->
+            <section class="mid-right">
+                <div class="mid-child">
+                    <div class="chart-header flex">
+                        <span>Tag QTY</span>
+                    </div>
+
+                    <div class="pie-sect flex">
+                        <canvas id="pie-chart-canvas"></canvas>
+                    </div>
+                </div>
+
+                <div class="mid-child">
+                    <div class="chart-header flex">
+                        <span>Score Distribution</span>
+                    </div>
+                    <div class="his-sect flex">
+                        <canvas id="his-chart-canvas"></canvas>
+                    </div>
+                </div>
+
+            </section>
+            <!-- * RIGHT ************************************** -->
+            <section class="right filter-sect">
+                <div class="filter-header flex">
+                    <span>Filter</span>               
+                </div>
+
+                <div class="filter-container">
+                    <div class="filter-each">
+                        <input id="all-filter" type="radio" name="tag-filter" value="all" checked>
+                         all
+                    </div>
+
+                    <% for (let category in tagGroups) { %>
+                        <div class="filter-each">
+                            <div class="tag-cat"><%= category %></div>
+                            <% tagGroups[category].forEach(tag => { %>
+                            <div class="tag-choice">
+                                <input type="radio" name="tag-filter" value="<%= tag %>(<%= category %>)">
+                                <%= tag %>
+                            </div>
+                            <% }) %>
+                        </div>
+                    <% } %>
+                </div>
+
+            
+            </section>
+
+
+        </section>
+    </div>
+
+    <script src="/public/08data/libs/chart.umd.js"></script>
+    <script src="/public/08data/libs/chartPlungIn.js"></script> 
+    <script>
+        const allVidObj = <%- JSON.stringify(allVidObj) %>;
+        
+    </script>
+    <script src="/public/08data/08data.js"></script>
+    
+</body>
+
+</html>

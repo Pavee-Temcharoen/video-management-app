@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Playlist</title>
+    <link rel="stylesheet" href="/public/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/public/scrollbar/scrollbar.css">
+    <link rel="stylesheet" href="/public/05playlist/playlist.css">
+    <!-- Script -->
+
+</head>
+
+<body>
+<!-- * BG ************************************** -->
+    <div class="bg">
+        <section class="center-sect">
+            <!-- * Top ************************************** -->
+            <section class="top">
+
+                <div class="search-sect flex">
+                    <button class="back-button" id="back-button">Back</button>
+                    <input class="search-input" id="search-input" type="text">
+                    <button class="reset-button" id="reset-button">Reset</button>       
+                </div>
+
+                <div class="sort-sect flex">
+                    <span>Sort: </span>
+                    <button id="title">Title</button>
+                    <button id="qty-button">Qty</button>
+                </div>
+            </section>
+            <!-- * bottom ************************************** -->
+            <section class="bottom">
+
+                <% for(let key in allPlaylistObj) { %>
+                    <% let title = key %>
+                    <% let qty = allPlaylistObj[key].length %>
+                    <% let firstId = allPlaylistObj[key][0] %>
+                    <% let tbnDir = '/db/dataVid/tbn/' + firstId + ".jpg" %>
+                    
+                    <div class="each-playlist" qty="<%= qty %>">
+                        <div class="each-header"><%= title %></div>
+    
+                        <div class="img-container flex">
+                            <img src="<%= tbnDir %>" alt="">
+                            <span class="each-qty"><%= qty %> video</span>
+                        </div>
+                        
+                        <div class="each-info flex">
+                            <button title="<%= title %>" class="edit-button">edit</button>
+
+                            <form action="/main/playlist" method="POST">
+                                <input class="hide" type="text" name="playlistName" value="<%= title %>">
+                                <button>play</button>
+                            </form>
+                                                
+                        </div>
+                    </div>
+                <% } %>               
+            </section>
+            <!-- * Add Button ************************************** -->
+            <div class="add-sect">
+                <button id="add-button" class="add-button">+</button>
+            </div>
+
+        </section>
+    </div>
+
+    <script>
+    </script>
+    <script src="/public/05playlist/playlist.js"></script>
+    
+</body>

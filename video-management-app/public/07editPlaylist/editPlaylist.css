@@ -1,0 +1,209 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.hide {display: none !important;}
+
+body {
+    background-color: rgb(30, 30, 30); color: antiquewhite;
+    position: relative;
+}
+
+button {
+    border: 1px white solid;
+    background-color: black;
+    color: white;
+}
+
+button:hover {
+    background-color: white;
+    border: 1px white solid;
+    color: black;
+    transition: 0.2s ease;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg {
+    background-color: rgb(40,40,40);
+    width: 100vw; height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.center-sect {
+    width: 80%; height: 80%;
+    background-color: rgb(15,15,15);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    border-radius: 0.5rem;
+}
+
+.left {
+    width: 30%; height: 100%;
+    position: relative;
+}
+
+.playlist-info {
+    background-color: rgb(5,5,5);
+    width: 100%; height: 6rem;
+    padding: 0.5rem;
+    position: relative;
+    border-radius:0.5rem 0 0 0 ;
+    overflow-x: auto;
+}
+
+.rename-sect button {
+    margin-left: 0.25rem;
+    padding: 0 0.5rem;
+}
+
+.playlist-box {
+    background-color: rgb(15,15,15);
+    width: 100%; height: calc( 100% - 6rem );
+    padding: 0.5rem;
+    overflow-y: auto;
+}
+
+h4 {
+    text-align: center;
+    font-size: 1.25rem; 
+}
+
+.delete-sect button {
+    position: absolute;
+    left: 0; bottom: 0;
+    padding: 0 0.5rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+    transform: translateY(100%);
+}
+
+.submit-sect button {
+    position: absolute;
+    right: 0; bottom: 0;
+    padding: 0 0.5rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+    transform: translateY(100%);
+}
+
+/* Each Video */
+
+.each-video {
+    min-width: 16rem;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(30,30,30);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.25rem;
+    gap: 0.25rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.search-box .each-video {
+    width: 16rem;
+    margin-bottom: 0;
+}
+
+.each-video .order-div {
+    background-color: black;
+    border-radius: 0.25rem;
+    width: 2rem;
+    text-align: center;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+}
+
+.each-video img {
+    width: 4rem; height: 3rem;
+    object-fit: cover;
+}
+
+.each-video .each-name {
+    height: 3rem;
+}
+
+.each-video .each-name h1 {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    font-size: 0.75rem;
+}
+
+.each-video button {
+    width: 1.2rem; height: 1.2rem;
+    font-size: 1rem;
+    position: absolute;
+    bottom: 0.25rem; right: 0.25rem;
+    text-align: center;
+    line-height: 0px;
+    border-radius: 20%;
+    font-weight: bold;
+}
+
+/* Right */
+
+.right {
+    width: 70%; height: 100%;
+    background-color: rgb(20,20,20);
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.search-info {
+    background-color: rgb(10,10,10);
+    width: 100%; height: 6rem;
+    padding: 0.5rem;
+    border-radius: 0 0.5rem 0 0;
+}
+
+.search-info input {
+    width: 20rem;
+    margin-left: 0.2rem;
+}
+
+.search-info button {
+    margin-left: 0.2rem;
+    width: 5rem;
+}
+
+.search-box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    width: 100%; max-height: calc( 100% - 6rem );
+    padding: 0.5rem;
+    overflow-y: auto;
+}
+
+/* DRAGGING */
+
+/* 🎯 When an item is being dragged */
+.each-video.dragging {
+    opacity: 0.5;
+    transform: scale(1.05); /* Slightly enlarge the item */
+    transition: transform 0.2s ease-out;
+}
+
+/* 🎯 Smooth repositioning animation */
+.each-video {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* 🎯 Placeholder effect when dragging */
+.each-video-placeholder {
+    height: 3.5rem; /* Same height as video elements */
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px dashed rgba(255, 255, 255, 0.5);
+    margin-bottom: 0.5rem;
+    transition: height 0.3s ease;
+}
+
+

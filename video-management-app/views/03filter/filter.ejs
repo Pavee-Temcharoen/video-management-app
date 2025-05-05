@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Video</title>
+    <link rel="stylesheet" href="/public/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/public/scrollbar/scrollbar.css">
+    <link rel="stylesheet" href="/public/03filter/filter.css">
+    <!-- Script -->
+
+</head>
+
+<body>
+<!-- * BG ************************************** -->
+    <form action="/main/filter" method="POST">
+        <div class="bg">
+
+            <section class="center-sect">
+                <!-- * UPPER ************************************** -->
+                <section class="upper flex">
+
+                    <div class="upper-left">
+                        <span>Min:
+                            <input type="number" name="min" id="min-input" min="0" max="20" value="0">
+                        </span>
+                        <span>Max:
+                            <input type="number" name="max" id="max-input" min="0" max="20" value="20">
+                        </span>
+                    </div>
+                    
+
+                    <div class="upper-right">
+                        <span>
+                            <input type="radio" name="filterType" value="some"  checked> Some
+                        </span>
+                        <span>
+                            <input type="radio" name="filterType" value="every"> All
+                        </span>
+                    </div>
+                    
+                </section>             
+
+                <!-- * LOWER ************************************** -->
+                <section class="lower flex">
+                    <!-- * Feature ************************************** -->
+                    <div class="lower-box">
+                        <div class="selected-sect">
+                            <header class="header flex">
+                                <span class="header-text">Feature</span>
+                                <span id="feat-reset" class="x-button">X</span>
+                            </header>
+                            <div id="feat-box" class="selected-box">
+                                <!-- <div>char(serie)</div -->
+                            </div>
+                        </div>
+
+                        <div class="searched-box">
+                            <input id="feat-search" type="text" value="">
+                            <span id="feat-delete" class="x-button">X</span>
+                        </div>
+
+                        <div class="choice-sect">
+                            <% for (const [parentKey, childObj] of Object.entries( allDataObj["feat"] ) ) { %>
+                                <% for (const [childKey, value] of Object.entries( childObj ) ) { %>
+                                    <% let text = `${childKey}(${parentKey})` %>
+                                    <% if (parentKey == "Ungroup"){ text = childKey } %>
+                                     
+                                    <div class="feat-each"><%= text %></div>
+                                <% }%>                       
+                            <% }%>
+                        </div>
+                    </div>
+
+                    <!-- * Artist ************************************** -->
+                    <div class="lower-box">
+                        <div class="selected-sect">
+                            <header class="header flex">
+                                <span class="header-text">Original<!-- Artist --></span>
+                                <span id="artist-reset" class="x-button">X</span>
+                            </header>
+                            <div id="artist-box" class="selected-box">
+                                <!-- <div>artist1</div -->
+                            </div>
+                        </div>
+
+                        <div class="searched-box">
+                            <input id="artist-search" type="text" value="">
+                            <span id="artist-delete" class="x-button">X</span>
+                        </div>
+
+                        <div class="choice-sect">
+                            <% for (const [key, val] of Object.entries( allDataObj["artist"] ) ) { %>
+                                <% let text = `${key}` %>  
+                                <div class="artist-each"><%= text %></div>
+                            <% }%>
+                        </div>
+                    </div>
+
+                    <!-- * Tag Positive ************************************** -->
+                    <div class="lower-box">
+                        <div class="selected-sect">
+                            <header class="header flex">
+                                <span class="header-text">Tag (+)</span>
+                                <span id="tagP-reset" class="x-button">X</span>
+                            </header>
+                            <div id="tagP-box" class="selected-box">
+                                <!-- <div>tag1</div -->
+                            </div>
+                        </div>
+
+                        <div class="searched-box">
+                            <input id="tagP-search" type="text" value="">
+                            <span id="tagP-delete" class="x-button">X</span>
+                        </div>
+
+                        <div class="choice-sect">
+                            <% for (const [parentKey, childObj] of Object.entries( allDataObj["tag"] ) ) { %>
+                                <% for (const [childKey, value] of Object.entries( childObj ) ) { %>
+                                    <% let text = `${childKey}(${parentKey})` %>  
+                                    <div class="tagP-each"><%= text %></div>
+                                <% }%>                       
+                            <% }%>
+                        </div>
+                    </div>
+
+                    <!-- * Tag Negative ************************************** -->
+                    <div class="lower-box">
+                        <div class="selected-sect">
+                            <header class="header flex">
+                                <span class="header-text">Tag (-)</span>
+                                <span id="tagN-reset" class="x-button">X</span>
+                            </header>
+                            <div id="tagN-box" class="selected-box">
+                                <!-- <div>tag1</div -->
+                            </div>
+                        </div>
+
+                        <div class="searched-box">
+                            <input id="tagN-search" type="text" value="">
+                            <span id="tagN-delete" class="x-button">X</span>
+                        </div>
+
+                        <div class="choice-sect">
+                            <% for (const [parentKey, childObj] of Object.entries( allDataObj["tag"] ) ) { %>
+                                <% for (const [childKey, value] of Object.entries( childObj ) ) { %>
+                                    <% let text = `${childKey}(${parentKey})` %>  
+                                    <div class="tagN-each"><%= text %></div>
+                                <% }%>                       
+                            <% }%>
+                        </div>
+                    </div>
+                    
+                </section>
+
+                <!-- * BUTTON ************************************** -->
+                 <section class="btn-sect flex">
+                    <button id="back-button" class="back-button">Back</button>
+                    <input class="" type="text" id="input" placeholder="search" name="input" value="">
+                    <button class="submit-button">Submit</button>
+                 </section>
+            </section>
+
+        </div>
+
+
+
+        <!-- * Hidden Form & Button ************************************** -->
+        <input class="hide" type="text" id="feat" placeholder="" name="feat" value="">
+        <input class="hide" type="text" id="artist" placeholder="" name="artist" value="">
+        <input class="hide" type="text" id="tagPositive" placeholder="" name="tagPositive" value="">
+        <input class="hide" type="text" id="tagNegative" placeholder="" name="tagNegative" value="">          
+    </form>
+
+    <script>
+    </script>
+    <script src="/public/03filter/filter.js"></script>
+    
+</body>

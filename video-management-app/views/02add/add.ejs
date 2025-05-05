@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Video</title>
+    <link rel="stylesheet" href="/public/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/public/scrollbar/scrollbar.css">
+    <link rel="stylesheet" href="/public/02add/add.css">
+    <!-- Script -->
+
+</head>
+
+<body>
+<!-- * UPPER ************************************** -->
+
+    <div class="bg">
+        <section class="center-sect">
+
+            <!-- * LEFT ************************************** -->
+            <section class="left">
+                <header class="header"> <h3>Add Form</h3> </header>
+                <div>
+                    <form action="/main/add" method="POST" enctype="multipart/form-data">
+                        <!-- * Form ************************************** -->
+                        <section>              
+                            <!-- * Text Upload * -->
+                            <section class="eachInput">
+                                <label for="vName">Name:</label>
+                                <div class="flex">
+                                    <input type="text" id="vName" placeholder="" name="vName" value="">
+                                    <div id="name-button" class="filter-button b0 flex">
+                                        <span>i</span>
+                                    </div>
+                                </div>     
+                            </section>
+                            <section class="eachInput">
+                                <label for="vScore">Score:</label>
+                                <div class="flex">
+                                    <input type="number" id="vScore" placeholder="" name="vScore" value=""  min="0" max="20" step="0.5">
+                                    <div class="filter-button-hide"></div>
+                                </div>
+                            </section>
+                            <section class="eachInput">
+                                <label for="vID">ID:</label>
+                                <div class="flex">
+                                    <input type="text" id="vID" placeholder="" name="vID" value="<%= id %>" required>
+                                    <div class="filter-button-hide"></div>
+                                </div>
+                            </section>
+
+                            <section class="eachInput">
+                                <label for="vFeat">Feat:</label>
+                                <div class="flex">
+                                    <input type="text" id="vFeat" placeholder="" name="vFeat" value="">
+                                    <div id="feat-button" class="filter-button b1"></div>
+                                </div>
+                            </section>
+                            <section class="eachInput">
+                                <label for="vArtist">Artist:</label>
+                                <div class="flex">
+                                    <input type="text" id="vArtist" placeholder="" name="vArtist" value="">
+                                    <div id="artist-button" class="filter-button b2"></div>
+                                </div>
+                            </section>
+                            <section class="eachInput">
+                                <label for="vPackage">Package:</label>
+                                <div class="flex">
+                                    <input type="text" id="vPackage" placeholder="" name="vPackage" value="">
+                                    <div id="package-button" class="filter-button b3"></div>
+                                </div>
+                            </section>
+                            <section class="eachInput">
+                                <label for="vTag">Tag:</label>
+                                <div class="flex">
+                                    <input type="text" id="vTag" placeholder="" name="vTag" value="">
+                                    <div id="tag-button" class="filter-button b4"></div>
+                                </div>
+                            </section>
+                
+                            <!-- * File Upload * -->
+                            <section class="eachInput fileUpload">
+                                <label for="vidFile">MP4:</label>
+                                <div class="flex">
+                                    <input type="file" id="vidFile" name="vidFile" required>
+                                    <div class="filter-button-hide"></div>
+                                </div>
+                            </section>
+                            <section class="eachInput fileUpload">
+                                <label for="tbnFile">JPG:</label>
+                                <div class="flex">
+                                    <input type="file" id="tbnFile" name="tbnFile" required>
+                                    <div class="filter-button-hide"></div>
+                                </div>
+                            </section>
+
+                        </section>
+                
+                        <div class="submitContain">
+                            <button id="back">Back</button>
+                            <button id="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- * RIGHT ************************************** -->
+            <section class="right">
+                <header class="header"> <h3 id="search-header">Info</h3> </header>
+
+                <div class="filter-search">
+                    <input id="search" type="text">
+                    <button id="reset">RESET</button>
+                </div>
+                <div class="list-container" id="list-container">
+                    <!-- * FEAT LIST ************************************** -->
+                    <% for (const [parentKey, childObj] of Object.entries( allDataObj["feat"] ) ) { %>
+                        <% for (const [childKey, value] of Object.entries( childObj ) ) { %>
+                            <% let text = `${childKey}(${parentKey})` %>
+                            <% if( parentKey === "Ungroup" ){ text = childKey } %>
+                            <span class="feat-each b1"><%= text %></span>
+                        <% }%>                       
+                    <% }%>
+                    <!-- * Artist LIST ************************************** -->
+                    <% for (const [key, val] of Object.entries( allDataObj["artist"] ) ) { %>
+                        <% let text = `${key}` %>  
+                        <span class="artist-each b2"><%= text %></span>
+                    <% }%>
+                    <!-- * Package LIST ************************************** -->
+                    <% for (const [key, val] of Object.entries( allPlaylistObj ) ) { %>
+                        <% let text = `${key}` %>  
+                        <span class="package-each b3"><%= text %></span>
+                    <% }%>
+                    <!-- * Tag LIST ************************************** -->
+                    <% for (const [parentKey, childObj] of Object.entries( allDataObj["tag"] ) ) { %>
+                        <% for (const [childKey, value] of Object.entries( childObj ) ) { %>
+                            <% let text = `${childKey}(${parentKey})` %>  
+                            <span class="tag-each b4"><%= text %></span>
+                        <% }%>                       
+                    <% }%>
+                    
+                </div>
+
+
+            </section>
+
+        </section>
+    </div>
+
+
+    <script>
+    </script>
+    <script src="/public/02add/add.js"></script>
+    
+</body>

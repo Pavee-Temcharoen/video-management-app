@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Playlist</title>
+    <link rel="stylesheet" href="/public/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/public/scrollbar/scrollbar.css">
+    <link rel="stylesheet" href="/public/07editPlaylist/editPlaylist.css">
+    <!-- Script -->
+    <% let idArray = playlistObj[title] %>
+
+</head>
+
+<body>
+<!-- * BG ************************************** -->
+    <div class="bg">
+        <section class="center-sect">
+            <!-- * Left ************************************** -->
+            <section class="left">
+                <div class="playlist-info">
+
+                        <h4 id="playlist-name"><%= title %></h4>
+                        <div class="rename-sect flex">
+                            <input class="rename-input" id="rename-input" type="text">
+                            <button id="rename-button">Rename</button>
+                        </div>
+
+                </div>
+                <div class="playlist-box">
+
+                    <% for(let [index, vid] of idArray.entries()) { %>
+                        <% let tbnDir =  '/db/dataVid/tbn/' + vid + ".jpg" %>
+                        <% let title =  allVidObj[vid]["vName"] %>
+                        <% let feats =  allVidObj[vid]["vFeat"].join(" ") %>
+                        <% let artists =  allVidObj[vid]["vArtist"].join(" ") %>
+                        <% let searchEngine =  title+feats+artists %>
+
+                        <div class="each-video" vid="<%= vid %>" title="<%= title %>"
+                            draggable="true" ondragstart="dragStart(event)"
+                            search-engine="<%= searchEngine %>">
+                            <div class="order-div">
+                                <span class="order"><%= index+1 %></span>
+                            </div>
+                            <img data-src="<%= tbnDir %>" class="lazy-img" alt="">
+
+                            <div class="each-name">
+                                <h1> <%= allVidObj[vid]["vName"] %> </h1>
+                            </div>
+                            <button class="remove-button">&times;</button>
+                        </div>
+                    <% } %> 
+                </div>
+                <!-- Delete Form -->
+                <form class="delete-sect" action="/main/playlist/edit?_method=DELETE" method="POST">                       
+                    <input class="hide" type="text" name="namePlaylistOld" value="<%= title %>">
+                    <button id="delete-button">Delete</button>
+                </form>
+                <!-- Submit Form -->
+                <form class="submit-sect" action="/main/playlist/edit?_method=PATCH" method="POST">                       
+                    <input class="hide" id="input-id" type="text" name="idArray" value="">
+                    <input class="hide" type="text" name="namePlaylistOld" value="<%= title %>">
+                    <input class="hide" id="input-name" type="text" name="namePlaylist" value="">
+                    <button id="submit-button">Submit</button>
+                </form>
+                 
+            </section>
+
+
+            <!-- * Right ************************************** -->
+            <section class="right">
+                <div class="search-info flex">
+                    <button id="back-button">Back</button>
+                    <input id="search-input" type="text">
+                    <button id="go-button">Go</button>
+                    <button id="reset-button">Reset</button>
+
+                    
+                </div>
+                <div class="search-box">
+                    <% idArray.forEach(key => delete allVidObj[key]) %>
+
+                    <% for(let key in allVidObj) { %>
+                        <% let tbnDir =  '/db/dataVid/tbn/' + key + ".jpg" %>
+                        <% let title =  allVidObj[key]["vName"] %>
+                        <% let feats =  allVidObj[key]["vFeat"].join(" ") %>
+                        <% let artists =  allVidObj[key]["vArtist"].join(" ") %>
+                        <% let searchEngine =  title+feats+artists %>
+
+                        <div class="each-video hide" vid="<%= key %>" draggable="true" title="<%= title %>"
+                            ondragstart="dragStart(event)"
+                            search-engine="<%= searchEngine %>" >
+                            
+                            <img data-src="<%= tbnDir %>" class="lazy-img" alt="">
+
+                            <div class="each-name">
+                                <h1> <%= allVidObj[key]["vName"] %> </h1>
+                            </div>
+                            <button class="add-button">+</button>
+                        </div>
+                    <% } %> 
+                </div>                           
+            </section>
+
+        </section>
+
+    </div>
+
+    <script>
+    </script>
+    <script src="/public/07editPlaylist/editPlaylist.js"></script>
+    
+</body>
